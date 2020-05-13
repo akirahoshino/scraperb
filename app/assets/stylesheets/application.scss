@@ -1,0 +1,44 @@
+@import 'bootstrap/scss/bootstrap';
+
+
+body {
+    padding: 120px 15px 0;
+  }
+  
+  .card-shadow {
+      margin-top: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 255, .2);
+  }
+  
+  .form-title {
+    text-align: center;
+    margin: 30px 0 30px;
+  }
+  
+  .form-button {
+      margin-top: 2em;
+      margin-bottom: 1em;
+  }
+  
+  .card {
+      padding: 30px 30px;
+  }
+  
+
+// ログイン画面
+
+.container-login {
+    @extend .container-fluid;
+    max-width: 576px;
+    padding: 2rem;
+  }
+  
+  // 「ログインしました」などのフラッシュ用スタイル
+  
+  .alert-notice {
+    @extend .alert-info;
+  }
+  
+  .alert-alert {
+    @extend .alert-danger;
+  }

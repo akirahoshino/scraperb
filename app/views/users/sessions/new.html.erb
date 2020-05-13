@@ -1,0 +1,34 @@
+
+<% provide(:title, "Log in") %>
+<%= form_with model: @user, url: session_path(resource_name), id: 'login', class: 'login', local: true do |f| %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+      <div class="card card-shadow">
+        <h1 class="card-title mb-4 mt-1 form-title">ログイン</h1>
+        <%= devise_error_messages! %>
+        <%= render 'shared/flash_messages' %>
+
+        <form>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+                class: "form-control", placeholder: "Eメール", type: "email" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password",
+                class: "form-control", placeholder: "********", type: "password" %>
+          </div>
+          <div class="form-group">
+            <% if devise_mapping.rememberable? %>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            <% end %>
+          </div>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block form-button" %>
+          <%= link_to "サインアップ", new_user_registration_path, class: "text-center" %>
+        </form>
+    </div>
+  </div>
+</div>
+<% end %>

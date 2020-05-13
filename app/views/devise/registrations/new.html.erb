@@ -1,0 +1,35 @@
+<% provide(:title, "Sign up") %>
+
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card card-shadow signup">
+      <h1 class="card-title mb-4 mt-1 form-title">サインアップ</h1>
+      <%= devise_error_messages! %>
+      <form>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Eメール", type: "email" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "********", type: "password" %><br />
+          <% if @minimum_password_length %>
+          <em class="text-muted">(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "********", type: "password" %>
+          <%= f.submit "サインアップ", class: "btn btn-primary btn-block form-button" %>
+        </div>
+        <%= link_to "戻る", root_path, class: "text-center" %>
+      </form>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if false %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<% end %>
