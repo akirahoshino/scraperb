@@ -1,0 +1,2 @@
+class WantedlyProject < ApplicationRecord
+end
