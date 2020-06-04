@@ -57,3 +57,11 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-bootstrap-views', '~> 1.0'
+
+gem 'nokogiri'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+end
