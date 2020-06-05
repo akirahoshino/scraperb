@@ -25,7 +25,7 @@ namespace :url_checker do
         doc = Nokogiri::HTML(open(url))
         # 求人であるか判定。除外するのは「ミートアップ」、「企業紹介ページ」
         # HTML title　に'求人'の文字が含まれるか
-        if doc.xpath('/html/head/title').text.include?('求人')
+        if doc.xpath('/html/head/title').text.include?('求人') || doc.xpath('/html/head/title').text.include?('jobs')
           status = 'published'
           # pp url
           company_name = doc.xpath('//*[@id="project-show-header"]/div[1]/hgroup/h2/a').text.split[0]
