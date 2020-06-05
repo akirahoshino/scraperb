@@ -19,14 +19,14 @@ namespace :url_checker do
 
     # ここでは地域の指定をせずに求人の記事を集める
     url_list.each do |url|
-      new_record = WantedlyProject.new
+      # new_record = WantedlyProject.new
       # rescue で 404エラーを排除
       begin
         doc = Nokogiri::HTML(open(url))
         # 求人であるか判定。除外するのは「ミートアップ」、「企業紹介ページ」
         # HTML title　に'求人'の文字が含まれるか
         if doc.xpath('/html/head/title').text.include?('求人')
-          status = 1
+          status = 'published'
           # pp url
           company_name = doc.xpath('//*[@id="project-show-header"]/div[1]/hgroup/h2/a').text.split[0]
           article_date = doc.at_css('[class="header-tags-right"]').text.split[1]
@@ -55,7 +55,7 @@ namespace :url_checker do
         
       rescue OpenURI::HTTPError => e
         if e.message == '404 Not Found'
-          status = 0
+          status = 'draft'
           # puts '記事が見つかりませんでした'
         else
           raise e
@@ -63,7 +63,8 @@ namespace :url_checker do
         end
       end
       # WantedlyProjectに保存
-      new_record.url              = url
+      new_record = WantedlyProject.find_or_initialize_by(url: url)
+      next unless new_record.new_record?
       new_record.title            = project_title
       new_record.status           = status
       new_record.posted_at        = article_date
