@@ -40,7 +40,8 @@ namespace :wordcloud do
 
     # ワードクラウド作成
     # https://www.wantedly.com/projects/452432
-    file_name = url.split("/")[-1]
+    # file_name = url.split("/")[-1]
+    file_name = "test"
     font = 'Arial Unicode'
     # cloud = MagicCloud::Cloud.new(result, rotate: :none, palette: :category20, scale: :log, font_family: font )
     cloud = MagicCloud::Cloud.new(result, rotate: :none, palette: :category20, scale: :log, font_family: font )
