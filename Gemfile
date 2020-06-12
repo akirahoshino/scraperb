@@ -62,9 +62,14 @@ gem 'rails-i18n', '~> 6.0'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'nokogiri'
+# gem 'carrierwave', :github => 'satoruk/carrierwave' , :ref => '43179f94d6a4e62f69e812f5082d6447c9138480'
+gem 'rmagick', require: false
+gem 'magic_cloud'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
 end
+
+gem 'action_args'

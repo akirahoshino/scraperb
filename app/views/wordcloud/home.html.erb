@@ -1,0 +1,15 @@
+<h1>Wantedly Article to wordcloud</h1>
+<p>Type in wantedly url and click create!</p>
+
+<div class="card">
+  <form class="form-group">
+    <div class="row">
+      <div class="">
+        <%= text_area_tag :url, "https://www.wantedly.com/projects/", size: "50x1", class: "text-muted" %>
+      </div>
+      <div class="text-center">
+        <%= submit_tag("Create") %>
+      </div>
+    </div>
+  </form>
+</div>

@@ -31,3 +31,4 @@ yarn-debug.log*
 .yarn-integrity
 .envrc
 .DS_Store
+/*.png

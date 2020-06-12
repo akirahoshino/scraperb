@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root to: "wordcloud#home"
+  # get 'wordcloud/home'
   get 'home/index'
-  root to: "home#index"
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
